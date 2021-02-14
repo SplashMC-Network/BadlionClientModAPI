@@ -13,7 +13,6 @@ import org.slf4j.Logger;
 
 import java.io.*;
 import java.nio.file.Path;
-import java.util.logging.Level;
 
 @Plugin(id = "badlionclientmodapi", name = "BadlionClientModAPI", version = "1.0", authors = {"Badlion"})
 public class BlcModApiVelocity {
@@ -36,10 +35,10 @@ public class BlcModApiVelocity {
     private Conf conf;
 
     @Inject
-    public BlcModApiVelocity(ProxyServer server, Logger logger, @DataDirectory Path dataDirectory) {
+    public BlcModApiVelocity(ProxyServer server, Logger logger) {
         this.server = server;
         this.logger = logger;
-        this.dataDirectory = dataDirectory.toFile();
+        this.dataDirectory = new File("plugins/BadlionClientModAPI");
     }
 
     @Subscribe
@@ -50,11 +49,10 @@ public class BlcModApiVelocity {
 
         try {
             conf = this.loadConf(new File(dataDirectory, "config.json"));
-
             this.server.getEventManager().register(this, new PlayerListener(this));
 
             logger.info("Successfully setup BadlionClientModAPI plugin.");
-        } catch (IOException e){
+        } catch (IOException e) {
             logger.error("Error with config for BadlionClientModAPI plugin.");
             e.printStackTrace();
         }
@@ -68,7 +66,7 @@ public class BlcModApiVelocity {
         try (Reader reader = new BufferedReader(new FileReader(file))) {
             return BlcModApiVelocity.GSON_NON_PRETTY.fromJson(reader, Conf.class);
         } catch (FileNotFoundException ex) {
-            logger.info("No Config Found: Saving default...");
+            logger.info("No Config Found: Saving default... (" + file.toString() + ")");
             Conf conf = new Conf();
             this.saveConf(conf, new File(this.dataDirectory, "config.json"));
             return conf;

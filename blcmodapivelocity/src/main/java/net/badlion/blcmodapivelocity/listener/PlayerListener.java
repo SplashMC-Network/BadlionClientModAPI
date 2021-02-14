@@ -20,7 +20,7 @@ public class PlayerListener {
 
         player.sendPluginMessage(
                 MinecraftChannelIdentifier.create("badlion", "mods"),
-                BlcModApiVelocity.GSON_NON_PRETTY.toJson(this.plugin.getConf()).getBytes()
+                BlcModApiVelocity.GSON_NON_PRETTY.toJson(this.plugin.getConf().getModsDisallowed()).getBytes()
         );
     }
 

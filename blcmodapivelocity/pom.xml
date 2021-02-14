@@ -17,7 +17,7 @@
 
     <build>
         <defaultGoal>clean install</defaultGoal>
-        <finalName>badlionclientmodapivelocity</finalName>
+        <finalName>BadlionClientModAPIVelocity</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>

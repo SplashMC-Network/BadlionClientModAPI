@@ -13,12 +13,27 @@ public class Conf {
 		return this.modsDisallowed;
 	}
 
+	@Override
+	public String toString() {
+		return "Conf{" +
+				"modsDisallowed=" + modsDisallowed +
+				'}';
+	}
+
 	private static class DisallowedMods {
 
 		private boolean disabled;
 		private JsonObject extra_data;
 		private JsonObject settings;
 
+		@Override
+		public String toString() {
+			return "DisallowedMods{" +
+					"disabled=" + disabled +
+					", extra_data=" + extra_data +
+					", settings=" + settings +
+					'}';
+		}
 	}
 
 }

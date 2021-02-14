@@ -11,7 +11,19 @@
     <modules>
         <module>blcmodapibungee</module>
         <module>blcmodapibukkit</module>
+        <module>blcmodapivelocity</module>
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>splashmc-public</id>
+            <url>https://maven.ceanstudios.de/repository/splashmc-public/</url>
+        </repository>
+        <snapshotRepository>
+            <id>splashmc-public</id>
+            <url>https://maven.ceanstudios.de/repository/splashmc-public/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 
 </project>

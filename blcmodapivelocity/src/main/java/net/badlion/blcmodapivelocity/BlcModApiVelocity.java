@@ -12,7 +12,6 @@ import net.badlion.blcmodapivelocity.listener.PlayerListener;
 import org.slf4j.Logger;
 
 import java.io.*;
-import java.nio.file.Path;
 
 @Plugin(id = "badlionclientmodapi", name = "BadlionClientModAPI", version = "1.0", authors = {"Badlion"})
 public class BlcModApiVelocity {
